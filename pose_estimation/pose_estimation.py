@@ -8,7 +8,8 @@ import threading
 class Thread_(threading.Thread):
     def save_to_file(self, keypoint_frames, video_path, i):
         file_name = os.path.basename(video_path).replace("mp4", "txt")
-        path_ = r"C:\Users\HP\Downloads\pose_estimation\data"
+        path_ = r"C:\Users\HP\Downloads\feature_extractor\Pose-Estimation-Using-Movenet-Trained-Models\pose_estimation\data"
+        
         txt_toBe_created = os.path.join(path_, file_name)
         os.makedirs(os.path.dirname(txt_toBe_created), exist_ok=True)
         with open(txt_toBe_created,'a') as f:
@@ -31,7 +32,7 @@ class PoseEstimation:
         self.thread = Thread_()
         # Start the thread
         self.thread.start()
-        self.model_path = r'C:\Users\HP\Downloads\pose_estimation\movenet-tflite-singlepose-thunder-tflite-float16-v1\4.tflite'
+        self.model_path = r'C:\Users\HP\Downloads\feature_extractor\Pose-Estimation-Using-Movenet-Trained-Models\pose_estimation\movenet-tflite-singlepose-thunder-tflite-float16-v1\4.tflite'
         self.labels = ["nose", "left eye", "right eye", "left ear", "right ear",
                        "left shoulder", "right shoulder", "left elbow", "right elbow",
                        "left wrist", "right wrist", "left hip", "right hip",
